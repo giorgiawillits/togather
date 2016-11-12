@@ -15,7 +15,7 @@
  */
 
 #gradside {
-  background: red; /* For browsers that do not support gradients */
+  background: orange; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, orange, yellow); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, orange, yellow); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, orange, yellow); /* For Firefox 3.6 to 15 */
@@ -25,6 +25,8 @@
 .extra-padding {
   padding-left: 5em;
   padding-right: 5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .fullsize {

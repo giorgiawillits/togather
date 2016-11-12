@@ -96,3 +96,24 @@ networks.each do |user, friends|
     n.save
     network_instances << n
 end
+
+
+## POSTS  ##
+posts = { {:description => "LETS DRIIINNKKKK", :user => gige} => [ato, gdi],
+          {:description => "Who's gonna be home at 8pm?", :user => val} => [gdi],
+          {:description => "Anyone want to grab lunch tomorrow?", :user => paul} => [ato, gdi],
+          {:description => "Come see my cats", :user => gige} => [ato, gdi],
+          {:description => "I have a dinner", :user => anne} => [ato, gdi],
+          {:description => "Beer die tomorrow", :user => aran} => [ato]}
+
+post_instances = []
+posts.each do |post_hash, groups|
+    new_post =  Post.create!(post_hash)
+    groups.each do |group|
+        new_post.groups << group
+    end
+    new_post.save
+    post_instances << new_post
+end
+
+## EVENTS  ##

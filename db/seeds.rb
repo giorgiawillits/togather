@@ -98,6 +98,23 @@ networks.each do |user, friends|
 end
 
 
+
+## GROUPS ##
+groups = { :GDI => [gige, val, paul, anne, lauren],
+             :ATO => [eric, aran, shane, gige],
+             :CSTA => [jerry, kelly, james, jordan] }
+             
+group_instances = []
+groups.each do |groupname, friends|
+    g = Group.create!(:name => groupname)
+    friends.each do |friend|
+        g.users << friend
+    end
+    g.save
+    group_instances << g
+end             
+
+
 ## POSTS  ##
 posts = { {:description => "LETS DRIIINNKKKK", :user => gige} => [ato, gdi],
           {:description => "Who's gonna be home at 8pm?", :user => val} => [gdi],
@@ -116,4 +133,8 @@ posts.each do |post_hash, groups|
     post_instances << new_post
 end
 
+
 ## EVENTS  ##
+events = {
+ 
+}

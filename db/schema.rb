@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20161112203000) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "groups_posts", id: false, force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "post_id"
+  end
+
+  add_index "groups_posts", ["group_id"], name: "index_groups_posts_on_group_id"
+  add_index "groups_posts", ["post_id"], name: "index_groups_posts_on_post_id"
+
   create_table "groups_users", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "group_id"
@@ -42,6 +50,18 @@ ActiveRecord::Schema.define(version: 20161112203000) do
   add_index "networks_users", ["network_id"], name: "index_networks_users_on_network_id"
   add_index "networks_users", ["user_id"], name: "index_networks_users_on_user_id"
 
+<<<<<<< HEAD
+=======
+  create_table "posts", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+>>>>>>> 09c0019f4a3275f476df82b91b2860ba51a60312
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

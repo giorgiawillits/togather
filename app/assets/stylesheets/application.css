@@ -22,6 +22,11 @@
   background: linear-gradient(to bottom right, orange, yellow); /* Standard syntax */
 }
 
+.extra-padding {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
 .fullsize {
   /* Set rules to fill background */
   min-height: 100%;

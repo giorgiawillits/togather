@@ -2,36 +2,38 @@
 <% content_for :head do %>
   <title>ToGather | Sign up</title>
 <% end %>
-<h1 class="logo-name text-center">ToGather</h1>
-<div class="middle-box text-center loginscreen   animated fadeInDown">
-    <div>
+<div id="gradup">
+    <h1 class="yellow-text yellow-accent-1">ToGather</h1>
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
         <div>
+            <div>
+            </div>
+            <h3>Register for ToGather</h3>
+            <p>Create an account to see it in action.</p>
+            <%= form_for :user, url: '/users',  html: { class: "m-t", "data-parsley-validate" => '' } do |f| %>
+                <div class="form-group">
+                    <%= f.text_field :first_name, {class: "form-control", placeholder: "First Name", :required => ''} %>
+                </div>
+                <div class="form-group">
+                    <%= f.text_field :last_name, {class: "form-control", placeholder: "Last Name", :required => ''} %>
+                </div>
+                <div class="form-group">
+                    <%= f.text_field :phone_number, {class: "form-control", placeholder: "Phone Number", :required => ''} %>
+                </div>
+                <div class="form-group">
+                    <%= f.email_field :email, {class: "form-control", placeholder: "Email", :required => ''} %>
+                </div>
+                <div class="form-group">
+                    <%= f.password_field :password, {class: "form-control", placeholder: "Password", :required => ''} %>
+                </div>
+                <div class="form-group">
+                    <%= f.password_field :password_confirmation, {class: "form-control", placeholder: "Confirm Password", :required => ''} %>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+            <% end %>
+            <p class="text-muted text-center"><small>Already have an account?</small></p>
+            <a class="btn btn-sm btn-white btn-block" href=<%= login_path %>>Login</a>
+            <p class="m-t"> <small>ToGathe 2016. Made with ♥ by Giorgia, Lauren, Valeriya, and Pauline</small> </p>
         </div>
-        <h3>Register for ToGather</h3>
-        <p>Create an account to see it in action.</p>
-        <%= form_for :user, url: '/users',  html: { class: "m-t", "data-parsley-validate" => '' } do |f| %>
-            <div class="form-group">
-                <%= f.text_field :first_name, {class: "form-control", placeholder: "First Name", :required => ''} %>
-            </div>
-            <div class="form-group">
-                <%= f.text_field :last_name, {class: "form-control", placeholder: "Last Name", :required => ''} %>
-            </div>
-            <div class="form-group">
-                <%= f.text_field :phone_number, {class: "form-control", placeholder: "Phone Number", :required => ''} %>
-            </div>
-            <div class="form-group">
-                <%= f.email_field :email, {class: "form-control", placeholder: "Email", :required => ''} %>
-            </div>
-            <div class="form-group">
-                <%= f.password_field :password, {class: "form-control", placeholder: "Password", :required => ''} %>
-            </div>
-            <div class="form-group">
-                <%= f.password_field :password_confirmation, {class: "form-control", placeholder: "Confirm Password", :required => ''} %>
-            </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
-        <% end %>
-        <p class="text-muted text-center"><small>Already have an account?</small></p>
-        <a class="btn btn-sm btn-white btn-block" href=<%= login_path %>>Login</a>
-        <p class="m-t"> <small>ToGathe 2016. Made with ♥ by Giorgia, Lauren, Valeriya, and Pauline</small> </p>
     </div>
 </div>

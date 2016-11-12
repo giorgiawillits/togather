@@ -14,11 +14,31 @@
  *= require_self
  */
 
-#grad {
+#gradside {
   background: red; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, orange, yellow); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, orange, yellow); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(bottom right, orange, yellow); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, orange, yellow); /* Standard syntax */
+  
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
+#gradup {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(yellow, orange); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(yellow, orange); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(yellow, orange); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(yellow, orange); /* Standard syntax */
+}

@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20161112065127) do
   add_index "networks_users", ["network_id"], name: "index_networks_users_on_network_id"
   add_index "networks_users", ["user_id"], name: "index_networks_users_on_user_id"
 
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

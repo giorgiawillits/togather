@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :networks
   has_one :network
+  
+  
+  has_and_belongs_to_many :groups
+  has_many :events
+  has_many :posts
 
   def full_name
     self.first_name.capitalize + " " + self.last_name.capitalize

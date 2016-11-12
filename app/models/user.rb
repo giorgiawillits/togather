@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
     message: ": an email is incorrectly formatted" }
   validates :first_name, presence: true
   validates :last_name, presence: true
+  
+  has_and_belongs_to_many :networks
+  has_one :network
 
   def full_name
     self.first_name.capitalize + " " + self.last_name.capitalize

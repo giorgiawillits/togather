@@ -4,11 +4,11 @@
 <% end %>
 <div id="gradside" class="fullsize">
     <div class="container">
+        <h1 class="yellow-text yellow-accent-2">ToGather</h1>
         <div class="row card extra-padding"> 
-            <h1 class="yellow-text yellow-accent-2">ToGather</h1>
             <div>
                 <h3 class="teal-text">Welcome to ToGather</h3>
-                <p class = "yellow-text yellow-accent-4">Login in to see it in action.</p>
+                <p class= "teal-text">Login in to see it in action.</p>
                 <%= form_tag '/login', {:class => 'm-t', "data-parsley-validate" => ''} do %>
                     <div class="form-group">
                         <%= text_field_tag :email, "", {class: "form-control", placeholder: "Email", :required => ''} %>

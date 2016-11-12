@@ -36,6 +36,9 @@ users = [ {:first_name => 'Giorgia', :last_name => 'Willits',
           {:first_name => 'Shane', :last_name => 'Barrat',
            :phone_number => '+13333333333', :email => 'sb@berkeley.edu',
            :password => 'sb'},
+          {:first_name => 'Ramsey', :last_name => 'Attalah',
+           :phone_number => '+13333333333', :email => 'ra@berkeley.edu',
+           :password => 'ra'},
           {:first_name => 'Jerry', :last_name => 'Chen',
            :phone_number => '+13333333333', :email => 'jc@berkeley.edu',
            :password => 'jc'},
@@ -65,6 +68,7 @@ lauren = User.find_by_first_name("Lauren")
 eric = User.find_by_first_name("Eric")
 aran = User.find_by_first_name("Aran")
 shane = User.find_by_first_name("Shane")
+ramsey = User.find_by_first_name("Ramsey")
 jerry = User.find_by_first_name("Jerry")
 kelly = User.find_by_first_name("Kelly")
 james = User.find_by_first_name("James")
@@ -101,8 +105,9 @@ end
 
 ## GROUPS ##
 groups = { :GDI => [gige, val, paul, anne, lauren],
-             :ATO => [eric, aran, shane, gige],
-             :CSTA => [jerry, kelly, james, jordan] }
+           :ATO => [eric, aran, shane, ramsey],
+           :CSTA => [jerry, kelly, james, jordan, gige, eric],
+           :fam => [gige, val, paul, anne, lauren, eric, aran, shane]}
              
 group_instances = []
 groups.each do |groupname, friends|
@@ -112,16 +117,20 @@ groups.each do |groupname, friends|
     end
     g.save
     group_instances << g
-end             
+end
+
+gdi, ato, csta, fam = group_instances
 
 
 ## POSTS  ##
-posts = { {:description => "LETS DRIIINNKKKK", :user => gige} => [ato, gdi],
+posts = { {:description => "LETS DRIIINNKKKK", :user => gige} => [fam],
           {:description => "Who's gonna be home at 8pm?", :user => val} => [gdi],
-          {:description => "Anyone want to grab lunch tomorrow?", :user => paul} => [ato, gdi],
-          {:description => "Come see my cats", :user => gige} => [ato, gdi],
-          {:description => "I have a dinner", :user => anne} => [ato, gdi],
-          {:description => "Beer die tomorrow", :user => aran} => [ato]}
+          {:description => "Anyone want to grab lunch tomorrow?", :user => paul} => [fam],
+          {:description => "Come see my cats", :user => gige} => [fam],
+          {:description => "I have a dinner", :user => anne} => [fam],
+          {:description => "Beer die tomorrow", :user => aran} => [ato], 
+          {:description => "lets get food", :user => eric} => [ato, csta], 
+}
 
 post_instances = []
 posts.each do |post_hash, groups|

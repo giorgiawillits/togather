@@ -7,8 +7,8 @@ class CreatePosts < ActiveRecord::Migration
       t.timestamps null: false
     end
     
-    create_table :posts_users, id: false do |t|
-      t.belongs_to :user, index: true
+    create_table :groups_posts, id: false do |t|
+      t.belongs_to :group, index: true
       t.belongs_to :post, index: true
     end
   end

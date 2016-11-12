@@ -11,7 +11,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112061322) do
+ActiveRecord::Schema.define(version: 20161112204006) do
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "events", ["group_id"], name: "index_events_on_group_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "groups", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+  end
+
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id"
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id"
+
+  create_table "networks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "networks", ["user_id"], name: "index_networks_on_user_id"
+
+  create_table "networks_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "network_id"
+  end
+
+  add_index "networks_users", ["network_id"], name: "index_networks_users_on_network_id"
+  add_index "networks_users", ["user_id"], name: "index_networks_users_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "posts_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+  end
+
+  add_index "posts_users", ["post_id"], name: "index_posts_users_on_post_id"
+  add_index "posts_users", ["user_id"], name: "index_posts_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

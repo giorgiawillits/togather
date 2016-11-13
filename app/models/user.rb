@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
         events[start_hour] = {day => [event]}
       end
     end
+    events
     
   end
   

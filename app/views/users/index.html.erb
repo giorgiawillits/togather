@@ -44,12 +44,11 @@
 		<div class="card col s12 m12 l4">
 			<h3> News </h3>
 			  <div class="row">
-			    
 			     <%= form_for :post, url: '/posts',  html: { class: "m-t", "data-parsley-validate" => '' } do |f| %>
-                    <div class="form-group">
+                    <div class="form-group input-field col s10">
                         <%= f.text_field :description, {class: "form-control", placeholder: "New Post", :required => ''} %>
                     </div>
-                    <button type="submit" class="btn btn-primary block full-width red m-b"><i class="material-icons">send</i></button>
+                    <button type="submit" class="btn-floating btn orange"><i class="material-icons">send</i></button>
                 <% end %>
                 
 			  </div>

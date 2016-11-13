@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+      @groups = current_user.groups
   end
 
   # GET /events/1/edit

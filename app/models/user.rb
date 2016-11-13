@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
   has_many :events
   has_many :posts
+  has_many :shared_events, :class_name => "Event", :foreign_key => 'event_id', :through => :groups
 
   def full_name
     self.first_name.capitalize + " " + self.last_name.capitalize
@@ -22,5 +23,10 @@ class User < ActiveRecord::Base
   def first_name_initial
     self.first_name.capitalize + " " + self.last_name.capitalize[0] + "."
   end
-
+  
+  def upcoming_events
+    next_week = self.shared_events.where("start_time >= :today AND start_time <= :end_of_week", 
+                                          {today: Time.now, end_of_week: 7.days.from_now})
+  end
+  
 end

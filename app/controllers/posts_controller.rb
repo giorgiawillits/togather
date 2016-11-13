@@ -15,11 +15,8 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     new_post = Post.new(post_params)
-    if new_post.save
-      redirect_to '/'
-    else
-      redirect_to new_post_path
-    end
+    new_post.save
+    redirect_to '/'
   end
   
   # DELETE /posts/1

@@ -1,1 +1,33 @@
-create a new event
+<% content_for :head do %>
+  <title>ToGather | Sign up</title>
+<% end %>
+<div id="gradside" class="fullsize">
+    <div class="container">
+        <h1 class="white-text">ToGather</h1>
+        <div class="row card extra-padding"> 
+            <h2 class="teal-text">Create an Event!</h2>
+            <div class="input-field col s12">
+                <%= text_field_tag :email, "", {class: "form-control", placeholder: "Email", :required => ''} %>
+                <select>
+                    <option value="" disabled selected>Choose a group</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                  
+            <label>Group</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+             <div class="input-field col s12">
+                <select>
+                    <option value="" disabled selected>Choose a group</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>Group</label>
+            </div>

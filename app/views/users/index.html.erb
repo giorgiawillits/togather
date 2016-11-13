@@ -44,19 +44,28 @@
 		<div class="card col s12 m12 l4">
 			<h3> News </h3>
 			  <div class="row">
-			    <form class="col s12">
-			      <div class="row">
-			        <div class="input-field col s12" style="margin-left:5px">
-			          <textarea id="newpost" class="materialize-textarea col s10"></textarea>
-			          <label for="newpost">New Post</label>
-			          <a class="btn-floating btn-small orange" href="\posts"><i class="material-icons">send</i></a>
-			        </div>
-			      </div>
-			    </form>
+			    
+			     <%= form_for :post, url: '/posts',  html: { class: "m-t", "data-parsley-validate" => '' } do |f| %>
+                    <div class="form-group">
+                        <%= f.text_field :description, {class: "form-control", placeholder: "New Post", :required => ''} %>
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width red m-b"><i class="material-icons">send</i></button>
+                <% end %>
+                
 			  </div>
 		</div>
 	</div>
 </div>
 
+<script type="text/javascript">
+(function($) {
+  $(document).ready(function($) {
+    $("#newpost-button").click(function() {
+      $("#newpost-form").submit();
+    });
+  });
+})(jQuery);
+</script>
+
+
 <div><%= link_to 'New Event', new_event_path %></div>
-<div><%= link_to 'Post', new_post_path %></div>

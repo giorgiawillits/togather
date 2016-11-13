@@ -147,12 +147,12 @@ end
 
 
 ## EVENTS  ##
-events = [ {:start_time => "2016-11-05 12:00:00", :end_time => "2016-11-05 13:00:00", :title => "Lunch :3", :user => val, :group => gdi}, 
-          {:start_time => "2016-09-05 20:00:00", :end_time => "2016-09-06 00:00:00", :title => "Trock!!", :user => gige, :group => fam}, 
-          {:start_time => "2016-08-11 10:00:00", :end_time => "2016-08-11 12:00:00", :title => "Brunch timeee", :user => lauren, :group => gdi},
-          {:start_time => "2016-11-11 20:00:00", :end_time => "2016-11-13 10:00:00", :title => "Cal Hacks", :user => gige, :group => gdi},
+events = [ {:start_time => "2016-11-14 12:00:00", :end_time => "2016-11-14 13:00:00", :title => "Lunch :3", :user => val, :group => gdi}, 
+          {:start_time => "2016-11-17 20:00:00", :end_time => "2016-11-17 00:00:00", :title => "Trock!!", :user => gige, :group => fam}, 
+          {:start_time => "2016-11-13 10:00:00", :end_time => "2016-11-13 12:00:00", :title => "Brunch timeee", :user => lauren, :group => gdi},
+          {:start_time => "2016-11-13 20:00:00", :end_time => "2016-11-13 10:00:00", :title => "Cal Hacks", :user => gige, :group => gdi},
           {:start_time => "2016-11-19 06:00:00", :end_time => "2016-11-19 14:00:00", :title => "sunrise b-die", :user => aran, :group => ato},
-          {:start_time => "2016-12-01 18:00:00", :end_time => "2016-12-01 23:00:00", :title => "168 and 186 homework", :user => eric, :group => fam}
+          {:start_time => "2016-11-21 18:00:00", :end_time => "2016-11-21 23:00:00", :title => "168 and 186 homework", :user => eric, :group => fam}
 ]
 
 event_instances = []

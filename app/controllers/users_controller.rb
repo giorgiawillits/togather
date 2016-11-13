@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @events = current_user.upcoming_events
+    # @posts = current_user.posts
   end
 
   # GET /users/1

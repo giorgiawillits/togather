@@ -9,6 +9,9 @@
 
 User.destroy_all
 Network.destroy_all
+Group.destroy_all
+Post.destroy_all
+Event.destroy_all
 
 
 ## USERS ##
@@ -124,12 +127,12 @@ gdi, ato, csta, fam = group_instances
 
 ## POSTS  ##
 posts = { {:description => "LETS DRIIINNKKKK", :user => gige} => [fam],
-          {:description => "Who's gonna be home at 8pm?", :user => val} => [gdi],
+          {:description => "Why do boys suck so much?!?!", :user => val} => [gdi],
           {:description => "Anyone want to grab lunch tomorrow?", :user => paul} => [fam],
           {:description => "Come see my cats", :user => gige} => [fam],
           {:description => "I have a dinner", :user => anne} => [fam],
           {:description => "Beer die tomorrow", :user => aran} => [ato], 
-          {:description => "lets get food", :user => eric} => [ato, csta], 
+          {:description => "lets get food", :user => eric} => [ato, csta]
 }
 
 post_instances = []
@@ -144,6 +147,17 @@ end
 
 
 ## EVENTS  ##
-events = {
- 
-}
+events = [ {:start_time => "2016-11-05 12:00:00", :end_time => "2016-11-05 13:00:00", :title => "Lunch :3", :user => val, :group => gdi}, 
+          {:start_time => "2016-09-05 20:00:00", :end_time => "2016-09-06 00:00:00", :title => "Trock!!", :user => gige, :group => fam}, 
+          {:start_time => "2016-08-11 10:00:00", :end_time => "2016-08-11 12:00:00", :title => "Brunch timeee", :user => lauren, :group => gdi},
+          {:start_time => "2016-11-11 20:00:00", :end_time => "2016-11-13 10:00:00", :title => "Cal Hacks", :user => gige, :group => gdi},
+          {:start_time => "2016-11-19 06:00:00", :end_time => "2016-11-19 14:00:00", :title => "sunrise b-die", :user => aran, :group => ato},
+          {:start_time => "2016-12-01 18:00:00", :end_time => "2016-12-01 23:00:00", :title => "168 and 186 homework", :user => eric, :group => fam}
+]
+
+event_instances = []
+events.each do |event|
+    new_event =  Event.create!(event)
+    new_event.save
+    event_instances << new_event
+end

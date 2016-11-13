@@ -1,58 +1,78 @@
 <div class="container" style="width:90%">
-	<div class="row">
-		<div class="col s12">
-		   <h5 class="white-text">ToGather</h5>
-		</div>		
+	<div class="row" style="margin-bottom:5px">
+		<div class="col s10">
+		   <h5 class="white-text" style="position:relative">ToGather</h5>
+		</div>
+		<div class="col s2">
+			<div class="floating fixed-action-btn horizontal" style="position:relative;right:0;bottom:0;top:5px;">
+		    <a class="btn-floating btn-large red">
+		      <i class="large material-icons">settings</i>
+		    </a>
+		    <ul>
+		      <li><a class="btn-floating red" href='/logout'><i class="material-icons">input</i></a></li>
+		    </ul>
+		  </div>			
+		</div>
 	</div>
 
-	<div class="row make-scroll">
+	<div class="row">
 		<div class="card col s12 m12 l7"  style="margin-right:1em;">
 			<h3>This week</h1>
-			<div class="col s12">
-				<table class="striped">
-					<thead>
-						<tr>
-			              <th>Sunday</th>
-			              <th>Monday</th>
-			              <th>Tuesday</th>
-			              <th>Wednesday</th>
-			              <th>Thursday</th>
-			              <th>Friday</th>
-			              <th>Saturday</th>
-			            </tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								one
-							</td>
-							<td>
-								one
-							</td>
-							<td>
-								one
-							</td>
-						</tr>
-						<tr>
-							<td>
-								one
-							</td>
-							<td>
-								one
-							</td>
-							<td>
-								one
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<table class="striped">
+				<thead>
+					<tr>
+		              <th>Sunday</th>
+		              <th>Monday</th>
+		              <th>Tuesday</th>
+		              <th>Wednesday</th>
+		              <th>Thursday</th>
+		              <th>Friday</th>
+		              <th>Saturday</th>
+		            </tr>
+				</thead>
+				<tbody>
+					<!-- For each time of day -->
+					<tr>
+						<!-- For each day of the week -->
+						<td>
+							one
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="card col s12 m12 l4">
 			<h3> News </h3>
+			  <% @posts.each do |p| %>
+			  <div class="row">
+			  	<div class="col s12">
+			  		<%= p.description %>
+			  	</div>
+			  </div>
+			  <% end %>
+			
+			  <div class="row">
+			     <%= form_for :post, url: '/posts',  html: { class: "m-t", "data-parsley-validate" => '' } do |f| %>
+                    <div class="form-group input-field col s10">
+                        <%= f.text_field :description, {class: "form-control", placeholder: "New Post", :required => ''} %>
+                    </div>
+                    <button type="submit" class="btn-floating btn orange"><i class="material-icons">send</i></button>
+                <% end %>
+                
+			  </div>
 		</div>
 	</div>
 </div>
 
+<script type="text/javascript">
+(function($) {
+  $(document).ready(function($) {
+    $("#newpost-button").click(function() {
+      $("#newpost-form").submit();
+    });
+  });
+})(jQuery);
+</script>
+
+
 <div><%= link_to 'New Event', new_event_path %></div>
-<div><%= link_to 'Post', new_post_path %></div>

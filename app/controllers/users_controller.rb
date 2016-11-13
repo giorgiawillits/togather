@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     # @events = current_user.upcoming_events
-    # @posts = current_user.posts
+    @posts = Post.all
   end
 
   # GET /users/1
@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    puts user_params
+    
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id

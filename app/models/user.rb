@@ -27,6 +27,21 @@ class User < ActiveRecord::Base
   def upcoming_events
     next_week = self.shared_events.where("start_time >= :today AND start_time <= :end_of_week", 
                                           {today: Time.now, end_of_week: 7.days.from_now})
+    events = {}
+    next_week.each do |event|
+      start_hour = event.start_time.hour
+      day = event.start_time.wday
+      if events.include? start_hour
+        if events[start_hour].include? day
+          events[start_hour][day] << event
+        else
+          events[start_hour] = [event]
+        end
+      else
+        events[start_hour] = {day => [event]}
+      end
+    end
+    
   end
   
 end

@@ -44,4 +44,17 @@ class User < ActiveRecord::Base
     
   end
   
+  def recent_posts
+    all_posts = []
+    self.groups.each do |group|
+      group.posts.each do |shared_post|
+        all_posts << shared_post
+      end
+    end
+    
+    all_posts.sort_by do |element|
+      element.created_at
+    end
+  end
+  
 end
